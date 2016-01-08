@@ -1,0 +1,2 @@
+class SilversController < ApplicationController
+end
