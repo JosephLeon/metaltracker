@@ -1,11 +1,14 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<div class="row">
+	<div class="large-12 columns">
+		<h1>Metal Tracker</h1>
+	</div>
+</div>
 
-<h3>Test points</h3>
-<%#= parsed_json %>
-<p><%= @id %></p>
-<p><%= @latest_date %></p>
-<p><%= @gold_price %></p>
-
-<h3>Full set</h3>
-<%#= @data %>
+<div class="row">
+	<div class="large-6 columns">
+		<p><span class="label">Today's gold price</span> <%= number_to_currency(@gold_price) %> per oz.</p>
+	</div>
+	<div class="large-6 columns">
+		<p><span class="label">Today's silver price</span> <%= number_to_currency(@silver_price) %> per oz.</p>
+	</div>
+</div>
