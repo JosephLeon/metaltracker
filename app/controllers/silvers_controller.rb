@@ -19,7 +19,18 @@ class SilversController < ApplicationController
   end
 
   def index
+  	# Get and parse silver price data
+  	url = 'https://www.quandl.com/api/v1/datasets/LBMA/SILVER.json'
+  	@silverdata = data = JSON.parse(open(url).read)
+
+  	# Set this days price to a variable
+  	@silver_price = @silverdata["data"][0][1]
+
   	@silvers = Silver.all
+  end
+
+  def edit
+  	@silver = Silver.find(params[:id])
   end
 
 	def destroy

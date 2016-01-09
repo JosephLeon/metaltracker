@@ -1,0 +1,37 @@
+<div class="row">
+	<div class="large-12 columns">
+		<h1>Silvers</h1>
+
+		<p><span class="label">Today's silver price</span> <%= number_to_currency(@silver_price) %> per oz.</p>
+
+		<p>+ <%= link_to 'New Silver', new_silver_path %></p>
+
+		<table>
+		  <tr>
+		    <th>Name</th>
+		    <th>Silver Amount</th>
+		    <th>Count</th>
+		    <th>Date Purchased</th>
+		    <th>Price Paid</th>
+		    <th>Silver Price at Purchase</th>
+		    <th>Profit</th>
+		    <th>Delete</th>
+		    <th>Edit</th>
+		  </tr>
+		 
+		  <% @silvers.each do |silver| %>
+		    <tr>
+		      <td><%= link_to silver.name, silver_path(silver) %></td>
+		      <td><%= silver.silver_amount %></td>
+		      <td><%= silver.count %></td>
+		      <td><%= silver.date_purchased %></td>
+		      <td><%= silver.price_paid %></td>
+		      <td><%= silver.name %></td>
+		      <td><%= silver.name %></td>
+		      <td><%= silver.name %></td>
+		      <td><%= link_to 'Edit', edit_silver_path(silver) %></td>
+		    </tr>
+		  <% end %>
+		</table>
+	</div>
+</div>
