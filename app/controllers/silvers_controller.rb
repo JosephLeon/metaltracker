@@ -18,6 +18,10 @@ class SilversController < ApplicationController
     @silver = Silver.find(params[:id])
   end
 
+  def index
+  	@silvers = Silver.all
+  end
+
 	def destroy
 		@silver = Silver.find(params[:id])
 		@silver.destroy
