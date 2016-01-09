@@ -9,29 +9,53 @@
 		<table>
 		  <tr>
 		    <th>Name</th>
-		    <th>Silver Amount</th>
 		    <th>Count</th>
+		    <th>Silver Amount</th>
+		    <th>Total Silver</th>
 		    <th>Date Purchased</th>
 		    <th>Price Paid</th>
-		    <th>Silver Price at Purchase</th>
 		    <th>Profit</th>
 		    <th>Delete</th>
 		    <th>Edit</th>
 		  </tr>
 		 
+		 	<% 
+		 		@total_profit = 0
+		 		@total_silver = 0
+		 	%>
 		  <% @silvers.each do |silver| %>
+		  	<%
+		  		@total_silver = silver.count * silver.silver_amount
+		  		@total_silver_price_today = @silver_price * @total_silver
+		  		@profit = @total_silver_price_today - silver.price_paid
+		  		@total_profit = @total_profit + @profit
+		  		@total_silver = @total_silver + @total_silver
+		  	%>
 		    <tr>
 		      <td><%= link_to silver.name, silver_path(silver) %></td>
-		      <td><%= silver.silver_amount %></td>
 		      <td><%= silver.count %></td>
+		      <td><%= silver.silver_amount %> oz.</td>
+		      <td><%= silver.silver_amount * silver.count %> oz.</td>
 		      <td><%= silver.date_purchased %></td>
-		      <td><%= silver.price_paid %></td>
-		      <td><%= silver.name %></td>
-		      <td><%= silver.name %></td>
-		      <td><%= silver.name %></td>
+		      <td><%= number_to_currency(silver.price_paid) %></td>
+		      <td><%= number_to_currency(@profit) %></td>
+		      <td><%= link_to 'Delete', silver_path(silver),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
 		      <td><%= link_to 'Edit', edit_silver_path(silver) %></td>
 		    </tr>
 		  <% end %>
+		  <tr>
+		  	<th>Totals</th>
+		  	<th></th>
+		  	<th></th>
+		  	<th><%= @total_silver %> oz.</th>
+		  	<th></th>
+		  	<th></th>
+		  	<th><%= number_to_currency(@total_profit) %></th>
+		  	<th></th>
+		  	<th></th>
+		  </tr>
 		</table>
 	</div>
 </div>
