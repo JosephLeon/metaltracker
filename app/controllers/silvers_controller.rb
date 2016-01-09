@@ -9,10 +9,14 @@ class SilversController < ApplicationController
 		@silver.save
 
 		respond_to do |format|
-			format.html { redirect_to "/" }
+			format.html { redirect_to @silver }
 			format.js
 		end
 	end
+
+	def show
+    @silver = Silver.find(params[:id])
+  end
 
 	def destroy
 		@silver = Silver.find(params[:id])
@@ -26,6 +30,6 @@ class SilversController < ApplicationController
 
 	private
 		def silver_params
-			params.require(:silver).permit(:name, :silver_amount, :date_purchased, :notes, :price_paid)
+			params.require(:silver).permit(:name, :silver_amount, :date_purchased, :notes, :price_paid, :count)
 		end
 end
