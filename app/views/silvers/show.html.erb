@@ -1,25 +1,29 @@
 <div class="row">
 	<div class="large-12 columns">
-		<h1>New Silver</h1>
+		<h1><%= @silver.name %></h1>
 
 		<p>
-			<span>Name:</span> <%= @silver.name %>
-		</p>
-
-		<p>
-			<span>Amount:</span> <%= @silver.silver_amount %>
+			<span class="bold">Amount:</span> <%= @silver.silver_amount %>
 		</p>
 
 		<p>
 			<span>Count:</span> <%= @silver.count %>
 		</p>
 
+		<p><span class="bold">Total silver:</span> <%= @total_silver %></p>
+
+		<p>Value of silver today: <%= number_to_currency(@total_silver_price_today) %></p>
+
 		<p>
 			<span>Date Purchased:</span> <%= @silver.date_purchased %>
 		</p>
 
 		<p>
-			<span>Price Paid:</span> <%= @silver.price_paid %>
+			<span>Price Paid:</span> <%= number_to_currency(@silver.price_paid) %>
+		</p>
+
+		<p>
+			Profit: <%= number_to_currency(@profit) %>
 		</p>
 
 		<p>
