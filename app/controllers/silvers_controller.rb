@@ -15,8 +15,9 @@ class SilversController < ApplicationController
 	end
 
 	def show
+		quandl_key = Rails.application.secrets.QUANDL_KEY
 		# Get and parse silver price data
-		url = 'https://www.quandl.com/api/v1/datasets/LBMA/SILVER.json'
+		url = 'https://www.quandl.com/api/v1/datasets/LBMA/SILVER.json?api_key=' + quandl_key
 		@silverdata = data = JSON.parse(open(url).read)
 
 		# Set this days price to a variable
@@ -29,8 +30,9 @@ class SilversController < ApplicationController
   end
 
   def index
+  	quandl_key = Rails.application.secrets.QUANDL_KEY
   	# Get and parse silver price data
-  	url = 'https://www.quandl.com/api/v1/datasets/LBMA/SILVER.json'
+  	url = 'https://www.quandl.com/api/v1/datasets/LBMA/SILVER.json?api_key=' + quandl_key
   	@silverdata = data = JSON.parse(open(url).read)
 
   	# Set this days price to a variable
