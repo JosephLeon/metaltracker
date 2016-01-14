@@ -38,6 +38,9 @@ class SilversController < ApplicationController
   	# Set this days price to a variable
   	@silver_price = @silverdata["data"][0][1]
 
+  	# Email with data, will move this to be an active job.
+  	DataMailer.data_email.deliver_now
+
   	@silvers = Silver.all
   end
 
