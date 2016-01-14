@@ -1,14 +1,13 @@
 <div class="row">
 	<div class="large-12 columns">
-		<h1>Metal Tracker</h1>
+		<p class="first-content">Metal Tracker is an open source app that helps precious metal collectors keep track of inventory, prices and more.</p>
 	</div>
-</div>
-
-<div class="row">
 	<div class="large-6 columns">
 		<p><span class="label">Today's gold price</span> <%= number_to_currency(@gold_price) %> per oz.</p>
+		<p><a href="/golds">My golds collection</a></p>
 	</div>
 	<div class="large-6 columns">
 		<p><span class="label">Today's silver price</span> <%= number_to_currency(@silver_price) %> per oz.</p>
+		<p><a href="/silvers">My silvers collection</a></p>
 	</div>
 </div>
