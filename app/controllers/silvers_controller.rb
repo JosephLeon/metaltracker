@@ -39,10 +39,16 @@ class SilversController < ApplicationController
   	@silver_price = @silverdata["data"][0][1]
 
   	@silvers = Silver.all
+  	@compiled_total_silver = Silver.sum(:total_silver)
   end
 
   def edit
   	@silver = Silver.find(params[:id])
+  end
+
+  def update
+    @silver = Silver.find(params[:id])
+    # @silver.update_attributes(user_params)
   end
 
 	def destroy
@@ -50,7 +56,7 @@ class SilversController < ApplicationController
 		@silver.destroy
 
 		respond_to do |format|
-			format.html { redirect_to "/" }
+			format.html { redirect_to "/silvers" }
 			format.js
 		end
 	end

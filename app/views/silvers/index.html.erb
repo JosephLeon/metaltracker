@@ -29,13 +29,13 @@
 		  		@total_silver_price_today = @silver_price * @total_silver
 		  		@profit = @total_silver_price_today - silver.price_paid
 		  		@total_profit = @total_profit + @profit
-		  		@total_silver = @total_silver + @total_silver
+		  		# @compiled_total_silver = @total_silver + @total_silver
 		  	%>
 		    <tr>
 		      <td><%= link_to silver.name, silver_path(silver) %></td>
 		      <td><%= silver.count %></td>
 		      <td><%= silver.silver_amount %> oz.</td>
-		      <td><%= silver.silver_amount * silver.count %> oz.</td>
+		      <td><%= silver.total_silver %> oz.</td>
 		      <td><%= silver.date_purchased %></td>
 		      <td><%= number_to_currency(silver.price_paid) %></td>
 		      <td><%= number_to_currency(@profit) %></td>
@@ -49,7 +49,7 @@
 		  	<th>Totals</th>
 		  	<th></th>
 		  	<th></th>
-		  	<th><%= @total_silver %> oz.</th>
+		  	<th><%= @compiled_total_silver %> oz.</th>
 		  	<th></th>
 		  	<th></th>
 		  	<th><%= number_to_currency(@total_profit) %></th>
