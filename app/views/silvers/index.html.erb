@@ -1,11 +1,19 @@
 <div class="row">
 	<div class="large-12 columns">
 		<h1>Silvers</h1>
+	</div>
 
+	<div class="large-6 columns">
 		<p><span class="label">Today's silver price</span> <%= number_to_currency(@silver_price) %> per oz.</p>
 
 		<p>+ <%= link_to 'New Silver', new_silver_path %></p>
+	</div>
 
+	<div class="large-6 columns">
+		<p><span class="label">Total silver price by weight:</span> <%= number_to_currency(@silver_price * @compiled_total_silver) %></p>
+	</div>
+
+	<div class="large-12 columns">
 		<table>
 		  <tr>
 		    <th>Name</th>
