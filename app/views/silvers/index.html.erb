@@ -2,18 +2,31 @@
 	<div class="large-12 columns">
 		<h1>Silvers</h1>
 	</div>
+</div>
 
+<div class="row">
 	<div class="large-6 columns">
 		<p><span class="label">Today's silver price</span> <%= number_to_currency(@silver_price) %> per oz.</p>
-
-		<p>+ <%= link_to 'New Silver', new_silver_path %></p>
 	</div>
 
 	<div class="large-6 columns">
 		<p><span class="label">Total silver price by weight:</span> <%= number_to_currency(@silver_price * @compiled_total_silver) %></p>
 	</div>
+</div>
 
+<div class="row">
+	<div class="large-6 columns">
+		<p><span class="label">Total silver:</span> <%= @compiled_total_silver %> oz.</p>
+	</div>
+
+	<div class="large-6 columns">
+		<p><span class="label">Profit:</span> <%= number_to_currency(@total_profit) %></p>
+	</div>
+</div>
+
+<div class="row">
 	<div class="large-12 columns">
+		<p>+ <%= link_to 'New Silver', new_silver_path %></p>
 		<table>
 		  <tr>
 		    <th>Name</th>
@@ -37,7 +50,6 @@
 		  		@total_silver_price_today = @silver_price * @total_silver
 		  		@profit = @total_silver_price_today - silver.price_paid
 		  		@total_profit = @total_profit + @profit
-		  		# @compiled_total_silver = @total_silver + @total_silver
 		  	%>
 		    <tr>
 		      <td><%= link_to silver.name, silver_path(silver) %></td>

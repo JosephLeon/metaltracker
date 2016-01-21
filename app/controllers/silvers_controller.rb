@@ -48,7 +48,11 @@ class SilversController < ApplicationController
 
   def update
     @silver = Silver.find(params[:id])
-    # @silver.update_attributes(user_params)
+    if @silver.update_attributes(silver_params)
+      redirect_to @silver
+    else
+      render 'edit'
+    end
   end
 
 	def destroy

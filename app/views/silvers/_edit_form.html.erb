@@ -1,0 +1,39 @@
+<div class="row">
+	<div class="large-12 columns">
+		<%= form_for @silver do |f| %>
+			<p>
+				<%= f.label :name %>
+				<%= f.text_field :name %>
+			</p>
+
+			<p>
+				<%= f.label :silver_amount %>
+				<%= f.text_field :silver_amount %>
+			</p>
+
+			<p>
+				<%= f.label :count %>
+				<%= f.text_field :count %>
+			</p>
+
+			<p>
+				<%= f.label :date_purchased %>
+				<%= f.date_field :date_purchased %>
+			</p>
+
+			<p>
+				<%= f.label :price_paid %>
+				<%= f.text_field :price_paid %>
+			</p>
+
+			<p>
+				<%= f.label :notes %>
+				<%= f.text_area :notes %>
+			</p>
+
+			<p>
+				<%= f.submit %>
+			</p>
+		<% end %>
+	</div>
+</div>
